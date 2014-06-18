@@ -1,0 +1,3 @@
+# Jarlssen_FlagNewProduct definition
+app/etc/modules/*.xml app/etc/modules/
+app/code/local/Jarlssen/* app/code/local/Jarlssen

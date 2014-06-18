@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * @author      Tsvetan Stoychev <tsvetan.stoychev@jarlssen.de>
+ * @website     http://www.jarlssen.de
+ * @license http://opensource.org/licenses/osl-3.0.php Open Software Licence 3.0 (OSL-3.0)
+ */
+-->
+<config>
+    <modules>
+        <Jarlssen_FlagNewProduct>
+            <version>0.1.0</version>
+        </Jarlssen_FlagNewProduct>
+    </modules>
+
+    <global>
+        <models>
+            <flag_new_product>
+                <class>Jarlssen_FlagNewProduct_Model</class>
+            </flag_new_product>
+        </models>
+    </global>
+
+    <frontend>
+        <events>
+            <catalog_product_load_after>
+                <observers>
+                    <add_new_product_flag>
+                        <type>model</type>
+                        <class>flag_new_product/observer</class>
+                        <method>markProductAsNew</method>
+                    </add_new_product_flag>
+                </observers>
+            </catalog_product_load_after>
+            <catalog_product_collection_load_after>
+                <observers>
+                    <add_new_product_flag>
+                        <type>model</type>
+                        <class>flag_new_product/observer</class>
+                        <method>markInCollectionAsNew</method>
+                    </add_new_product_flag>
+                </observers>
+            </catalog_product_collection_load_after>
+        </events>
+    </frontend>
+
+</config>
